@@ -44,4 +44,16 @@ class User extends Authenticatable
     public function categories(){
         return $this->hasMany(Category::class);
     }
+    
+    public function collections(){
+        return $this->hasMany(Collection::class);
+    }
+
+    public function tags(){
+        return $this->hasMany(Tag::class);
+    }
+
+    public function itens(){
+        return $this->hasMany(Item::class);
+    }
 }

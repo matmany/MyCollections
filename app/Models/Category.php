@@ -15,7 +15,17 @@ class Category extends Model
         'active',
     ];
 
+    protected $casts = [
+        'name' => 'string',
+        'active' => 'boolean',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }
+    
+    public function collections(){
+        return $this->hasMany(Collection::class);
+    }
+
 }

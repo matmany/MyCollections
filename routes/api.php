@@ -2,8 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Category;
-use App\Models\User;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,14 @@ use App\Models\User;
 // get single
 // update
 //IDUSER: 1
+
+Route::resources([
+    'categories' => CategoryController::class,
+    'collections'=> CollectionController::class,
+    'itens'=> ItemController::class,
+    'Tag'=>TagController::class,
+    'Type'=>TypeController::class
+]);
 
 /*-----Lista--------*/
 // get all

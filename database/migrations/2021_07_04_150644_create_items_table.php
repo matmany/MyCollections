@@ -23,8 +23,8 @@ class CreateItemsTable extends Migration
             $table->string('url_img')->nullable();
             $table->string('description')->nullable();
             $table->string('notes')->nullable();
-            $table->integer('score')->nullable();
-            $table->integer('review')->nullable();
+            $table->float('amount', 8, 2)->nullable();
+            $table->string('review')->nullable();
             $table->integer('position')->default(0);
             $table->json('options')->nullable();
             $table->timestamps();
