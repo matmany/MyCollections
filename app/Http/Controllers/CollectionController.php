@@ -75,4 +75,8 @@ class CollectionController extends Controller
         //
         return Collection::destroy($id);
     }
+
+    public function itens($id){
+        return Collection::find($id)->itens;
+    }
 }

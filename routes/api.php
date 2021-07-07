@@ -7,6 +7,8 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TypeController;
+use App\Models\Category;
+use App\Models\Collection;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,49 +29,17 @@ use App\Http\Controllers\TypeController;
 // update
 //IDUSER: 1
 
-Route::resources([
+Route::apiResources([
     'categories' => CategoryController::class,
     'collections'=> CollectionController::class,
     'itens'=> ItemController::class,
-    'Tag'=>TagController::class,
-    'Type'=>TypeController::class
+    'tags'=>TagController::class,
+    'types'=>TypeController::class,
 ]);
 
-/*-----Lista--------*/
-// get all
-// create
-// delete
-// get single
-// update
-// get same ID-Category 
+Route::get('/categories/{category}/collections',[CategoryController::class,'collections']);
 
-/*-----Tags--------*/
-// get all
-// create
-// delete
-// get single
-// update
-
-/*-----Itens--------*/
-// get all
-// create
-// delete
-// get single
-// update
-// get same ID-list
-// get same ID-tag ???
-// get specific order???
-
-// need Database and migrations
-// model
-// service   
-// controler, get get info
-// return de info
-
-
-Route::get('/testing-the-api', function(){
-    return['message'=>'hello'];
-});
+Route::get('/collections/{collection}/itens',[CollectionController::class,'itens']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

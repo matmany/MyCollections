@@ -75,4 +75,8 @@ class CategoryController extends Controller
         //delete category
         return Category::destroy($id);
     }
+
+    public function collections($id){
+        return Category::find($id)->collections;
+    }
 }
